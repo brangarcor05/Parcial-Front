@@ -1,0 +1,11 @@
+<main>
+  <h1>Sistema de bodegas y productos</h1>
+  
+  @if (mensajeError) {
+    <p style="color: red; font-weight: bold;">{{ mensajeError }}</p>
+  }
+
+  <app-bodega-form (creada)="cargar()" />
+  <h2>Productos por bodega</h2>
+  <app-productos-table [bodegas]="bodegas" />
+</main>

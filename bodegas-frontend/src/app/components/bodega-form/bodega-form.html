@@ -1,0 +1,10 @@
+<form [formGroup]="form" (ngSubmit)="guardar()">
+  <h2>Registrar bodega</h2>
+  <input formControlName="nombre" placeholder="Nombre" />
+  <input formControlName="ubicacion" placeholder="Ubicación" />
+  <button type="submit" [disabled]="form.invalid">Guardar</button>
+  
+  @if (error) { <p style="color:red">{{ error }}</p> }
+
+  @if (mensajeExito) { <p style="color:green">{{ mensajeExito }}</p> }
+</form>

@@ -1,0 +1,31 @@
+<table border="1" style="width: 100%; border-collapse: collapse;">
+  <thead>
+    <tr>
+      <th>Producto</th>
+      <th>Precio</th>
+      <th>Cantidad</th>
+      <th>Bodega</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (b of bodegas; track b.id) {
+      
+      @for (p of b.productos; track p.id) {
+        <tr>
+          <td>{{ p.nombre }}</td>
+          <td>{{ p.precio | number:'1.0-0' }}</td> 
+          <td>{{ p.cantidad }}</td>
+          <td>{{ b.nombre }}</td>
+        </tr>
+      } @empty {
+        <tr>
+          <td><em>Sin productos</em></td>
+          <td>-</td>
+          <td>-</td>
+          <td>{{ b.nombre }}</td>
+        </tr>
+      }
+
+    }
+  </tbody>
+</table>
